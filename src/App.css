@@ -1,0 +1,146 @@
+.App{
+cursor: pointer;
+margin-top: -20px;
+}
+
+.header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.company_name{
+margin-bottom: -50px;
+font-style: italic;
+margin-left: 10px;
+color :yellow;
+}
+
+.other_header_info{
+    background-color: black;
+    color: white;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-end;
+    height: 60px;
+    
+
+}
+
+.search{
+    margin-top: 22px;
+    margin-left: -3px;
+    height : 20px;
+    width: 300px;
+    border: none;
+    padding: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+
+    .search_button{
+        padding: 1px;
+        margin-top: 20px;
+        height: 37px;
+        width: 80px;
+        font-size: 20px;
+        font-weight: 700;
+        background: none;
+        border: none;
+        color: white;
+    }
+
+.cart_number{
+    height: 20px;
+    width: 20px;
+    margin-top: 27px;
+    margin-right: 2px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 100px;
+    border: none;
+    font-size: small;
+}
+
+.user_details{
+    padding-top: 4px;
+}
+
+.cart{
+    height: 40px;
+    width: 65px;
+    padding-right: 10px;
+    margin-top: -8px; 
+    margin-left: 60px;
+    margin-right: 4px;
+   /* border: 1px;
+   border-style: ridge;
+   border-color: yellow;
+   width: 100px; */
+}
+
+.cart_title{
+    margin-top: 25px;
+    margin-left: 16px;
+    color: yellow;
+}
+
+
+.cart_info{
+    display: flex;
+    justify-content: space-between;
+    margin-top : 10px;
+
+    }
+
+
+    .gg-shopping-cart {
+    color: yellow;
+    margin-left: -20px;
+    margin-right: -24px;
+    margin-top: 24px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    transform: scale(var(--ggs,1));
+    width: 20px;
+    height: 21px;
+    background:
+        linear-gradient(
+            to left,currentColor 12px,
+            transparent 0)
+            no-repeat -1px 6px/18px 2px,
+        linear-gradient(
+            to left,currentColor 12px,
+            transparent 0)
+            no-repeat 6px 14px/11px 2px,
+        linear-gradient(
+            to left,currentColor 12px,
+            transparent 0)
+            no-repeat 0 2px/4px 2px,
+        radial-gradient(
+            circle,currentColor 60%,
+            transparent 40%)
+            no-repeat 12px 17px/4px 4px,
+        radial-gradient(
+            circle,currentColor 60%,
+            transparent 40%)
+            no-repeat 6px 17px/4px 4px
+}
+.gg-shopping-cart::after,
+.gg-shopping-cart::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 2px;
+    height: 14px;
+    background: currentColor;
+    top: 2px;
+    left: 4px;
+    transform: skew(12deg)
+}
+.gg-shopping-cart::after {
+    height: 10px;
+    top: 6px;
+    left: 16px;
+    transform: skew(-12deg)
+}

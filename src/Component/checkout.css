@@ -1,0 +1,17 @@
+
+.image{
+    height: 600px;
+    width: 1000px;
+    background-image: url('./bgphoto.png');
+    margin-top: -90px;
+}
+
+.back_text3{
+    margin-top: -30px;
+    margin-left: 7px;
+    color: black;
+}
+
+.paymentBox{
+    cursor: pointer;
+}
