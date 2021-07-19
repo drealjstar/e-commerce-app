@@ -15,21 +15,23 @@ class App extends React.Component {
     details: [],
     cart: [],
     searchText: "",
-    loading: false
+    loading: false,
+    
+    
   };
 
   searchHandler = (e) => {
     e.preventDefault();
     this.setState({ loading: true });
     const newDetails = this.state.details.filter(data => data.title.toLowerCase().includes(this.state.searchText.toLowerCase()))
-
+   
     this.setState({ loading: false, details: newDetails });
 
   }
 
   componentDidMount() {
     Axios.get('https://fakestoreapi.com/products').then((result) => {
-
+     
       this.setState({ details: result.data });
     });
   };
@@ -44,8 +46,18 @@ class App extends React.Component {
     })
   }
 
-  render() {
-    const { cart, loading } = this.state;
+  deleteFromCart = (id) => {
+    const deletingCart = this.state.cart.filter(details => {
+      return details.id !== id
+    })
+    this.setState({
+      cart : deletingCart
+    })
+  }
+
+
+ render() {
+    const { cart} = this.state;
 
     const cartLength = cart.map(i => i.quantity).reduce((a, b) => a + b, 0);
 
@@ -73,8 +85,8 @@ class App extends React.Component {
 
                       <p className='cart_title' >Cart</p>
                       <span className='cart_number'>{cartLength}</span>
-
-                    </div>
+                      
+                      </div>
                   </Link>
                 </div>
               </div>
@@ -86,7 +98,7 @@ class App extends React.Component {
 
               <Route exact path='/full_info' render={(props) => <FullInfo   {...props} addToCart={this.addToCart} />} />
 
-              <Route exact path='/total_amount' render={(props) => <Total {...props} />} />
+              <Route exact path='/total_amount' render={(props) => <Total {...props}  deleteFromCart={this.deleteFromCart}/>} />
 
               <Route exact path='/checkout' render={(props) => <Checkout {...props} />} />
             </Switch>
@@ -98,3 +110,4 @@ class App extends React.Component {
 }
 
 export default App;
+

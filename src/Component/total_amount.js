@@ -15,8 +15,11 @@ import {getTotal} from './add';
    {props =>{
 
     const {cart}= props.userDetails;
-    
     const total= getTotal(cart);
+    const {deleteFromCart}= this.props
+          
+        
+         //  const clearCart = () => removeCart([]);
 
   return(
      <div className='total_amt'>
@@ -41,14 +44,21 @@ import {getTotal} from './add';
              <p className='cart_price'>{prod.productData.price}</p>
              <p className='cart_quantity'>{prod.quantity}</p>
               <p className='cart_subtotal'>{(prod.productData.price) * (prod.quantity)}</p>
-             </div>
+
+              </div>
+          <delete  className='cart_delete'
+            onClick={() => {
+            deleteFromCart(prod.id);
+                  }}
+             >×</delete>
+             
              </div>
            </div>
          );
      })}
      <div className= "total">
      <Link to='/checkout' className='paymentBtn'> <button className='check_button'><span>checkout </span></button> </Link>
-    <h1 className= 'cart_total'>Grand Total :   {reduceLength(total , parseInt(6))}</h1>
+    <h1 className= 'cart_total'>Grand Total :   {reduceLength(total , String(6)) }</h1>
      </div>
      </div>
         )
@@ -59,9 +69,6 @@ import {getTotal} from './add';
    );
   }
 }
-
-
-
 
 
 export default Total;

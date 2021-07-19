@@ -10,7 +10,7 @@
 }
 
 .items{
-    height: 160px;
+    height: 190px;
     width: 914px;
     margin-bottom: 2px;
     border: 2px;
@@ -75,7 +75,10 @@
     cursor: pointer;
 }
 
-
+.cart_delete{
+    padding-top: 36px;
+    padding-left: 90px;
+}
 
  
 
