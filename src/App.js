@@ -16,9 +16,7 @@ class App extends React.Component {
     cart: [],
     searchText: "",
     loading: false,
-    
-    
-  };
+    };
 
   searchHandler = (e) => {
     e.preventDefault();
@@ -31,7 +29,6 @@ class App extends React.Component {
 
   componentDidMount() {
     Axios.get('https://fakestoreapi.com/products').then((result) => {
-     
       this.setState({ details: result.data });
     });
   };
@@ -41,24 +38,48 @@ class App extends React.Component {
   };
 
   addToCart = (product) => {
-    this.setState({
-      cart: [...this.state.cart, product]
-    })
+    const productInCart = this.state.cart.find(c => c.id === product.id );
+
+    if(productInCart){
+      productInCart.quantity =  productInCart.quantity + product.quantity;
+
+      console.log(productInCart,'inside',this.state.cart )
+        const newState = this.state.cart.map(c => {
+          if(c.id === productInCart){
+            c = productInCart
+          }
+          return c
+        })
+      this.setState({
+        cart: newState
+      });
+    }else{
+      this.setState({
+        cart: [...this.state.cart, product]
+      });
+    }
+    
   }
 
   deleteFromCart = (id) => {
     const deletingCart = this.state.cart.filter(details => {
-      return details.id !== id
+      
+      return details.productData.id !== id
     })
     this.setState({
       cart : deletingCart
     })
   }
 
+   clearCart = () => {
+     this.setState({
+     cart : []
+   });
+  }
 
  render() {
     const { cart} = this.state;
-
+    console.log(this.state.cart, '-------')
     const cartLength = cart.map(i => i.quantity).reduce((a, b) => a + b, 0);
 
     return (
@@ -98,7 +119,7 @@ class App extends React.Component {
 
               <Route exact path='/full_info' render={(props) => <FullInfo   {...props} addToCart={this.addToCart} />} />
 
-              <Route exact path='/total_amount' render={(props) => <Total {...props}  deleteFromCart={this.deleteFromCart}/>} />
+              <Route exact path='/total_amount' render={(props) => <Total {...props}  deleteFromCart={this.deleteFromCart}  clearCart={this.clearCart}/>} />
 
               <Route exact path='/checkout' render={(props) => <Checkout {...props} />} />
             </Switch>
