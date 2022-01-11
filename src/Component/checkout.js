@@ -45,8 +45,7 @@ class Checkout extends Component {
                 />
                 <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.TOP_RIGHT} />
               </div>
-              <div className='image'>
-              </div>
+              <div className='image'></div>
             </div>
           )
         }
